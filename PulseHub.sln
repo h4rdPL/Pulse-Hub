@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5B79D064-0064-4313-8EE9-CBE691BD7086}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PulseHub.Core", "src\PulseHub.Core\PulseHub.Core.csproj", "{FFB5CA38-59E6-4854-957A-841AFEC8D601}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PulseHub.Application", "src\PulseHub.Application\PulseHub.Application.csproj", "{437FA13E-3FA6-4330-9FC1-06286D9F71ED}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PulseHub.Infrastructure", "src\PulseHub.Infrastructure\PulseHub.Infrastructure.csproj", "{69925733-B31C-43F7-A46E-F04D02565B8A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PulseHub.API", "src\PulseHub.API\PulseHub.API.csproj", "{69A61D23-3422-4631-A8CE-1EC6505F38E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PulseHub.Tests", "PulseHub.Tests\PulseHub.Tests.csproj", "{96A7A501-36CB-457D-B08A-33C3BCB1A97C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFB5CA38-59E6-4854-957A-841AFEC8D601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFB5CA38-59E6-4854-957A-841AFEC8D601}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFB5CA38-59E6-4854-957A-841AFEC8D601}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFB5CA38-59E6-4854-957A-841AFEC8D601}.Release|Any CPU.Build.0 = Release|Any CPU
+		{437FA13E-3FA6-4330-9FC1-06286D9F71ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{437FA13E-3FA6-4330-9FC1-06286D9F71ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{437FA13E-3FA6-4330-9FC1-06286D9F71ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{437FA13E-3FA6-4330-9FC1-06286D9F71ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69925733-B31C-43F7-A46E-F04D02565B8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69925733-B31C-43F7-A46E-F04D02565B8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69925733-B31C-43F7-A46E-F04D02565B8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69925733-B31C-43F7-A46E-F04D02565B8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69A61D23-3422-4631-A8CE-1EC6505F38E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69A61D23-3422-4631-A8CE-1EC6505F38E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69A61D23-3422-4631-A8CE-1EC6505F38E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69A61D23-3422-4631-A8CE-1EC6505F38E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{96A7A501-36CB-457D-B08A-33C3BCB1A97C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96A7A501-36CB-457D-B08A-33C3BCB1A97C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96A7A501-36CB-457D-B08A-33C3BCB1A97C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96A7A501-36CB-457D-B08A-33C3BCB1A97C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FFB5CA38-59E6-4854-957A-841AFEC8D601} = {5B79D064-0064-4313-8EE9-CBE691BD7086}
+		{437FA13E-3FA6-4330-9FC1-06286D9F71ED} = {5B79D064-0064-4313-8EE9-CBE691BD7086}
+		{69925733-B31C-43F7-A46E-F04D02565B8A} = {5B79D064-0064-4313-8EE9-CBE691BD7086}
+		{69A61D23-3422-4631-A8CE-1EC6505F38E7} = {5B79D064-0064-4313-8EE9-CBE691BD7086}
+	EndGlobalSection
+EndGlobal
