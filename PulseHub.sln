@@ -15,6 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PulseHub.API", "src\PulseHu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PulseHub.Tests", "PulseHub.Tests\PulseHub.Tests.csproj", "{96A7A501-36CB-457D-B08A-33C3BCB1A97C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Elementy rozwiązania", "Elementy rozwiązania", "{3F758D58-855E-4A56-9619-920929EA9905}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -50,5 +55,8 @@ Global
 		{437FA13E-3FA6-4330-9FC1-06286D9F71ED} = {5B79D064-0064-4313-8EE9-CBE691BD7086}
 		{69925733-B31C-43F7-A46E-F04D02565B8A} = {5B79D064-0064-4313-8EE9-CBE691BD7086}
 		{69A61D23-3422-4631-A8CE-1EC6505F38E7} = {5B79D064-0064-4313-8EE9-CBE691BD7086}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DCA4A24A-6832-4D82-8CDA-4A71D88BEE66}
 	EndGlobalSection
 EndGlobal

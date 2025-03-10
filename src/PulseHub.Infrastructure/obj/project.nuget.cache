@@ -1,8 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "hqGIL1+mxaPReKc3T40l5I/knjxHU+2NxTTZBL/DwiIbtGONms1EgbNuoHJkk3KEjwiytPiy1KrG6Fa1kTt7kA==",
+  "dgSpecHash": "tdkCzdq2LPrbtRO6dkXZFQKzOMyUrKQqI8uRPjnQ533iQKVMqaW3hBysXM40Icv28GZeB/KUG8rFIbs1YPDATw==",
   "success": true,
   "projectFilePath": "D:\\_programowanie\\dotNET\\portfolioProjects\\PulseHub\\src\\PulseHub.Infrastructure\\PulseHub.Infrastructure.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\mateu\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.2\\microsoft.entityframeworkcore.9.0.2.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.2\\microsoft.entityframeworkcore.abstractions.9.0.2.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\microsoft.entityframeworkcore.analyzers\\9.0.2\\microsoft.entityframeworkcore.analyzers.9.0.2.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\microsoft.extensions.caching.abstractions\\9.0.2\\microsoft.extensions.caching.abstractions.9.0.2.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\microsoft.extensions.caching.memory\\9.0.2\\microsoft.extensions.caching.memory.9.0.2.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.2\\microsoft.extensions.dependencyinjection.9.0.2.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.2\\microsoft.extensions.dependencyinjection.abstractions.9.0.2.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\microsoft.extensions.logging\\9.0.2\\microsoft.extensions.logging.9.0.2.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\9.0.2\\microsoft.extensions.logging.abstractions.9.0.2.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\microsoft.extensions.options\\9.0.2\\microsoft.extensions.options.9.0.2.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.2\\microsoft.extensions.primitives.9.0.2.nupkg.sha512",
+    "C:\\Users\\mateu\\.nuget\\packages\\system.diagnostics.diagnosticsource\\9.0.2\\system.diagnostics.diagnosticsource.9.0.2.nupkg.sha512"
+  ],
   "logs": []
 }

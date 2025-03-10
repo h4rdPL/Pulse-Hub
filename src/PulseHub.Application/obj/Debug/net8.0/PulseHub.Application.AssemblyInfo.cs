@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PulseHub.Application")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b90e19d5e27b24eeeb8a8910d62f17669c8262e")]
 [assembly: System.Reflection.AssemblyProductAttribute("PulseHub.Application")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PulseHub.Application")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

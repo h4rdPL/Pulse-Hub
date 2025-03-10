@@ -13,3 +13,4 @@ D:\_programowanie\dotNET\portfolioProjects\PulseHub\src\PulseHub.Infrastructure\
 D:\_programowanie\dotNET\portfolioProjects\PulseHub\src\PulseHub.Infrastructure\bin\Debug\net8.0\PulseHub.Core.pdb
 D:\_programowanie\dotNET\portfolioProjects\PulseHub\src\PulseHub.Infrastructure\obj\Debug\net8.0\PulseHub.Infrastructure.csproj.AssemblyReference.cache
 D:\_programowanie\dotNET\portfolioProjects\PulseHub\src\PulseHub.Infrastructure\obj\Debug\net8.0\PulseHub.Infrastructure.csproj.CopyComplete
+D:\_programowanie\dotNET\portfolioProjects\PulseHub\src\PulseHub.Infrastructure\obj\Debug\net8.0\PulseHub.Infrastructure.sourcelink.json
