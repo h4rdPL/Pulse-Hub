@@ -48,5 +48,24 @@ namespace PulseHub.Tests.Application.Tests
             Assert.NotNull(user);
             Assert.Equal(userDto.Username, user.Username);
         }
+
+        [Fact]
+        public async Task RegisterUser_ShouldReturnError_WhenEmailIsInvalid()
+        {
+            // Arrange
+            var invalidUserDto = new RegisterUserDTO
+            {
+                Username = "testuser",
+                Email = "invalid-email",
+                Password = "securepassword"
+            };
+
+            // Act
+            var result = await _registerUser.ExecuteAsync(invalidUserDto);
+
+            // Assert
+            Assert.False(result.IsSuccess);
+            Assert.Equal("Invalid email format.", result.Message);
+        }
     }
 }

@@ -1,7 +1,9 @@
 ﻿using PulseHub.Application.DTO;
+using PulseHub.Application.Helpers;
 using PulseHub.Application.Results;
 using PulseHub.Core.Entities;
 using PulseHub.Core.Interfaces;
+using System.Text.RegularExpressions;
 
 namespace PulseHub.Application.Services
 {
@@ -16,6 +18,11 @@ namespace PulseHub.Application.Services
 
         public async Task<Result> ExecuteAsync(RegisterUserDTO userDto)
         {
+
+            if (!EmailValidator.IsValidEmail(userDto.Email))
+            {
+                return new Result(false, "Invalid email format.", "400");
+            }
             if (await _userRepository.UserExistsAsync(userDto.Email))
             {
                 return Result.Failure("User already exists.");
@@ -25,13 +32,14 @@ namespace PulseHub.Application.Services
             {
                 Username = userDto.Username,
                 Email = userDto.Email,
-                Password = userDto.Password 
+                Password = userDto.Password
             };
 
             await _userRepository.AddUserAsync(user);
 
             return Result.Success("User registered successfully.");
         }
-    }
 
+
+    }
 }
