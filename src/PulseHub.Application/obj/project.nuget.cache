@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "B9EpFlq5sYCuRnKtWm1xrDxJDFTLN0UNMSJLmX1G7WD/Wqe8sw/s8GTq2ijJ2JGbRf932+99OAcs7nEm/Wg9GA==",
+  "dgSpecHash": "bhdH1FTphFhldRKO6JpJE18SAZLrT2rKqWOcKT2qGi/AfQS1H3TBzTX9kw3GELXnmvA8pjss2wcwV5ib/h8qmg==",
   "success": true,
   "projectFilePath": "D:\\_programowanie\\dotNET\\portfolioProjects\\PulseHub\\src\\PulseHub.Application\\PulseHub.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\mateu\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512"
+  ],
   "logs": []
 }

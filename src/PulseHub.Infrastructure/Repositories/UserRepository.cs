@@ -20,6 +20,12 @@ namespace PulseHub.Infrastructure.Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task<User> GetUserByEmailAsync(string email)
+        {
+            return await _context.Users
+                .FirstOrDefaultAsync(x => x.Email == email);
+        }
+
         public async Task<bool> UserExistsAsync(string email)
         {
             return await _context.Users

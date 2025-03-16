@@ -145,6 +145,12 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.3, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -254,6 +260,9 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
+              "D:\\_programowanie\\dotNET\\portfolioProjects\\PulseHub\\src\\PulseHub.Application\\PulseHub.Application.csproj": {
+                "projectPath": "D:\\_programowanie\\dotNET\\portfolioProjects\\PulseHub\\src\\PulseHub.Application\\PulseHub.Application.csproj"
+              },
               "D:\\_programowanie\\dotNET\\portfolioProjects\\PulseHub\\src\\PulseHub.Core\\PulseHub.Core.csproj": {
                 "projectPath": "D:\\_programowanie\\dotNET\\portfolioProjects\\PulseHub\\src\\PulseHub.Core\\PulseHub.Core.csproj"
               }

@@ -7,10 +7,10 @@ namespace PulseHub.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserController : Controller
+    public class UserController : ControllerBase
     {
         private readonly RegisterUser _registerUser;
-
+        private readonly LoginUser _loginUser;
         public UserController(RegisterUser registerUser)
         {
             _registerUser = registerUser;
@@ -30,7 +30,7 @@ namespace PulseHub.API.Controllers
         {
             if (userDTO == null)
             {
-                return BadRequest(new Result(false, "User data is required.", null));
+                return BadRequest(Result<string>.Failure("User data is required.", "400"));
             }
 
             var result = await _registerUser.ExecuteAsync(userDTO);
@@ -43,6 +43,27 @@ namespace PulseHub.API.Controllers
             return BadRequest(result);
         }
 
+        /// <summary>
+        /// Logs in a user using the provided credentials and returns a JWT
+        /// </summary>
+        /// <param name="loginUserDTO">The login credentials of the user (email and password).</param>
+        /// <returns>An IActionResult containing either a token if successful or an error message if login fails.</returns>
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginUserDTO loginUserDTO)
+        {
+            if (loginUserDTO == null)
+            {
+                return BadRequest("Invalid client request");
+            }
 
+            var result = await _loginUser.ExecuteAsync(loginUserDTO);
+
+            if (result.IsSuccess)
+            {
+                return Ok(new { Token = result.Data });
+            }
+
+            return Unauthorized(new { Message = result.Message });
+        }
     }
 }

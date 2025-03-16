@@ -1,26 +1,24 @@
 ﻿namespace PulseHub.Application.Results
 {
-    public class Result
+    public class Result<T>
     {
-        public bool IsSuccess { get; set; }
-        public string Message { get; set; }
-        public string ErrorCode { get; set; }
+        public bool IsSuccess { get; }
+        public string Message { get; }
+        public string? ErrorCode { get; }
+        public T? Data { get; }
 
-        public Result(bool isSuccess, string message, string errorCode = null)
+        private Result(bool isSuccess, string message, T? data = default, string? errorCode = null)
         {
             IsSuccess = isSuccess;
             Message = message;
+            Data = data;
             ErrorCode = errorCode;
         }
 
-        public static Result Success(string message)
-        {
-            return new Result(true, message);
-        }
+        public static Result<T> Success(T data, string message = "Operation successful.")
+            => new(true, message, data);
 
-        public static Result Failure(string message, string errorCode = null)
-        {
-            return new Result(false, message, errorCode);
-        }
+        public static Result<T> Failure(string message, string? errorCode = null)
+            => new(false, message, default, errorCode);
     }
 }

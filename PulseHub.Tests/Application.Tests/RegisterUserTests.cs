@@ -43,7 +43,6 @@ namespace PulseHub.Tests.Application.Tests
             Assert.True(result.IsSuccess);
             Assert.Equal("User registered successfully.", result.Message);
 
-            // Verify that the user was added to the in-memory database
             var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == userDto.Email);
             Assert.NotNull(user);
             Assert.Equal(userDto.Username, user.Username);
