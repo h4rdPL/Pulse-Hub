@@ -1,5 +1,6 @@
 ﻿using Moq;
 using PulseHub.Application.DTO;
+using PulseHub.Application.Helpers;
 using PulseHub.Application.Services;
 using PulseHub.Core.Entities;
 using PulseHub.Core.Interfaces;
@@ -23,22 +24,21 @@ namespace PulseHub.Tests.Application.Tests
         [Fact]
         public async Task LoginUser_ShouldReturnToken_WhenCredentialsAreValid()
         {
+            var hashedPassword = PasswordHasher.Hash("password");
+
             _mockUserRepository.Setup(repo => repo.GetUserByEmailAsync(It.IsAny<string>()))
-                .ReturnsAsync(new User { Email = "test@example.com", Password = "password" });
+                .ReturnsAsync(new User { Email = "test@example.com", Password = hashedPassword });
 
-            var loginDTO = new LoginUserDTO
-            {
-                Email = "test@example.com",
-                Password = "password"
-            };
-
+            // Setup mock for Verify method
             _mockTokenService.Setup(service => service.GenerateToken(It.IsAny<User>())).Returns("sample-token");
 
+            var loginDTO = new LoginUserDTO { Email = "test@example.com", Password = "password" };
             var result = await _loginUser.ExecuteAsync(loginDTO);
 
-            Assert.True(result.IsSuccess); 
+            Assert.True(result.IsSuccess);
             Assert.Equal("sample-token", result.Data);
         }
+
 
     }
 }

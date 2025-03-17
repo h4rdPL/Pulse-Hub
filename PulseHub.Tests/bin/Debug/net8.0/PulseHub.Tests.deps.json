@@ -1662,6 +1662,7 @@
           "Microsoft.EntityFrameworkCore": "9.0.3",
           "Microsoft.EntityFrameworkCore.Relational": "9.0.3",
           "Microsoft.EntityFrameworkCore.SqlServer": "9.0.3",
+          "PulseHub.Application": "1.0.0",
           "PulseHub.Core": "1.0.0"
         },
         "runtime": {

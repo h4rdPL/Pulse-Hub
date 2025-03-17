@@ -65,5 +65,6 @@ namespace PulseHub.API.Controllers
 
             return Unauthorized(new { Message = result.Message });
         }
+
     }
 }

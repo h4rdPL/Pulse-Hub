@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using PulseHub.Application.DTO;
+using PulseHub.Application.Helpers;
 using PulseHub.Application.Services;
 using PulseHub.Core.Interfaces;
 using PulseHub.Infrastructure.Data;
@@ -33,7 +34,7 @@ namespace PulseHub.Tests.Application.Tests
             {
                 Username = "testuser",
                 Email = "test@example.com",
-                Password = "securepassword"
+                Password = PasswordHasher.Hash("securepassword")
             };
 
             // Act
@@ -41,7 +42,7 @@ namespace PulseHub.Tests.Application.Tests
 
             // Assert
             Assert.True(result.IsSuccess);
-            Assert.Equal("User registered successfully.", result.Message);
+            Assert.Equal("Operation successful.", result.Message);
 
             var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Email == userDto.Email);
             Assert.NotNull(user);
@@ -56,7 +57,7 @@ namespace PulseHub.Tests.Application.Tests
             {
                 Username = "testuser",
                 Email = "invalid-email",
-                Password = "securepassword"
+                Password = PasswordHasher.Hash("password")
             };
 
             // Act
