@@ -25,7 +25,7 @@ namespace PulseHub.Application.Services
                 return Result<string>.Failure("Invalid credentials.");
             }
 
-            var passwordValid = PasswordHasher.Verify(loginUserDTO.Password, user.Password);
+            var passwordValid = PasswordHasher.VerifyPassword(loginUserDTO.Password, user.Password);
 
             if (!passwordValid)
             {

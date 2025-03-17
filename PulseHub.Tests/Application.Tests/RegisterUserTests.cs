@@ -34,7 +34,7 @@ namespace PulseHub.Tests.Application.Tests
             {
                 Username = "testuser",
                 Email = "test@example.com",
-                Password = PasswordHasher.Hash("securepassword")
+                Password = PasswordHasher.HashPassword("#Password1")
             };
 
             // Act
@@ -57,7 +57,7 @@ namespace PulseHub.Tests.Application.Tests
             {
                 Username = "testuser",
                 Email = "invalid-email",
-                Password = PasswordHasher.Hash("password")
+                Password = PasswordHasher.HashPassword("#Password1")
             };
 
             // Act
