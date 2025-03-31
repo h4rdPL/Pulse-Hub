@@ -1,8 +1,10 @@
 ﻿using Moq;
-using PulseHub.Application.Results;
 using PulseHub.Application.Services;
 using PulseHub.Core.Entities;
 using PulseHub.Core.Interfaces;
+using System;
+using System.Threading.Tasks;
+using Xunit;
 
 namespace PulseHub.Tests.Application.Tests.Notifications
 {
@@ -10,21 +12,23 @@ namespace PulseHub.Tests.Application.Tests.Notifications
     {
         private readonly Mock<IEmailService> _mockEmailService;
         private readonly Mock<IUserRepository> _mockUserRepository;
+        private readonly Mock<INotificationHub> _mockNotificationHub;
         private readonly NotificationService _notificationService;
 
         public NotificationServiceTests()
         {
             _mockEmailService = new Mock<IEmailService>();
             _mockUserRepository = new Mock<IUserRepository>();
-            _notificationService = new NotificationService(_mockEmailService.Object, _mockUserRepository.Object);
+            _mockNotificationHub = new Mock<INotificationHub>();
+
+            _notificationService = new NotificationService(_mockEmailService.Object, _mockUserRepository.Object, _mockNotificationHub.Object);
         }
 
         [Fact]
         public async Task SendNotificationAsync_ShouldReturnSuccess_WhenUserExists()
         {
             var user = new User { Id = 1, Email = "test@example.com" };
-            _mockUserRepository.Setup(repo => repo.GetUserByEmailAsync(user.Email))
-                               .ReturnsAsync(user);
+            _mockUserRepository.Setup(repo => repo.GetUserByEmailAsync(user.Email)).ReturnsAsync(user);
             _mockEmailService.Setup(service => service.SendEmailAsync(user.Email, "Notification", "Test message"))
                              .ReturnsAsync(true);
 
@@ -51,8 +55,7 @@ namespace PulseHub.Tests.Application.Tests.Notifications
         public async Task SendNotificationAsync_ShouldReturnFailure_WhenEmailSendingFails()
         {
             var user = new User { Id = 1, Email = "test@example.com" };
-            _mockUserRepository.Setup(repo => repo.GetUserByEmailAsync(user.Email))
-                               .ReturnsAsync(user);
+            _mockUserRepository.Setup(repo => repo.GetUserByEmailAsync(user.Email)).ReturnsAsync(user);
             _mockEmailService.Setup(service => service.SendEmailAsync(user.Email, "Notification", "Test message"))
                              .ReturnsAsync(false);
 
@@ -61,6 +64,51 @@ namespace PulseHub.Tests.Application.Tests.Notifications
             Assert.False(result.IsSuccess);
             Assert.Equal("Failed to send email notification.", result.Message);
             _mockEmailService.Verify(service => service.SendEmailAsync(user.Email, "Notification", "Test message"), Times.Once);
+        }
+
+        [Fact]
+        public async Task SendNotificationAsync_ShouldSendSignalRMessage_WhenUserExists()
+        {
+            var user = new User { Id = 1, Email = "test@example.com" };
+            _mockUserRepository.Setup(repo => repo.GetUserByEmailAsync(user.Email)).ReturnsAsync(user);
+            _mockEmailService.Setup(service => service.SendEmailAsync(user.Email, "Notification", "Test message"))
+                             .ReturnsAsync(true);
+
+            var result = await _notificationService.SendNotificationAsync(user.Email, "Test message");
+
+            Assert.True(result.IsSuccess);
+            _mockNotificationHub.Verify(hub => hub.SendNotificationAsync(user.Email, "Test message"), Times.Once);
+        }
+
+        [Fact]
+        public async Task SendNotificationAsync_ShouldReturnFailure_WhenSignalRFails()
+        {
+            var user = new User { Id = 1, Email = "test@example.com" };
+            _mockUserRepository.Setup(repo => repo.GetUserByEmailAsync(user.Email)).ReturnsAsync(user);
+            _mockEmailService.Setup(service => service.SendEmailAsync(user.Email, "Notification", "Test message"))
+                             .ReturnsAsync(true);
+            _mockNotificationHub.Setup(hub => hub.SendNotificationAsync(user.Email, "Test message"))
+                                .ThrowsAsync(new Exception("SignalR failure"));
+
+            var result = await _notificationService.SendNotificationAsync(user.Email, "Test message");
+
+            Assert.False(result.IsSuccess);
+            Assert.Equal("Failed to send real-time notification.", result.Message);
+        }
+
+        [Fact]
+        public async Task SendNotificationAsync_ShouldSendBothEmailAndSignalR_WhenSuccessful()
+        {
+            var user = new User { Id = 1, Email = "test@example.com" };
+            _mockUserRepository.Setup(repo => repo.GetUserByEmailAsync(user.Email)).ReturnsAsync(user);
+            _mockEmailService.Setup(service => service.SendEmailAsync(user.Email, "Notification", "Test message"))
+                             .ReturnsAsync(true);
+
+            var result = await _notificationService.SendNotificationAsync(user.Email, "Test message");
+
+            Assert.True(result.IsSuccess);
+            _mockEmailService.Verify(service => service.SendEmailAsync(user.Email, "Notification", "Test message"), Times.Once);
+            _mockNotificationHub.Verify(hub => hub.SendNotificationAsync(user.Email, "Test message"), Times.Once);
         }
     }
 }

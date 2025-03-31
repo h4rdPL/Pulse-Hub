@@ -30,5 +30,6 @@ namespace PulseHub.Application.Services
 
             return Result<bool>.Success(true);
         }
+
     }
 }

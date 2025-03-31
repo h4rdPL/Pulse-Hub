@@ -15,10 +15,12 @@ namespace PulseHub.Infrastructure
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(connectionString));
 
             services.AddScoped<IUserRepository, UserRepository>();
-
+            services.AddScoped<IEmailService, EmailService>();
+            
             services.AddScoped<ITokenService, TokenServices>();  
             services.AddScoped<RegisterUser>();
             services.AddScoped<LoginUser>();
+            services.AddScoped<NotificationService>();
         }
     }
 }
