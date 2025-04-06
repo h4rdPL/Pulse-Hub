@@ -166,3 +166,9 @@ D:\_programowanie\dotNET\portfolioProjects\PulseHub\PulseHub.Tests\bin\Debug\net
 D:\_programowanie\dotNET\portfolioProjects\PulseHub\PulseHub.Tests\bin\Debug\net8.0\PulseHub.Infrastructure.dll
 D:\_programowanie\dotNET\portfolioProjects\PulseHub\PulseHub.Tests\bin\Debug\net8.0\PulseHub.Infrastructure.pdb
 D:\_programowanie\dotNET\portfolioProjects\PulseHub\PulseHub.Tests\bin\Debug\net8.0\BCrypt.Net-Next.dll
+D:\_programowanie\dotNET\portfolioProjects\PulseHub\PulseHub.Tests\bin\Debug\net8.0\Microsoft.AspNetCore.Authorization.dll
+D:\_programowanie\dotNET\portfolioProjects\PulseHub\PulseHub.Tests\bin\Debug\net8.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+D:\_programowanie\dotNET\portfolioProjects\PulseHub\PulseHub.Tests\bin\Debug\net8.0\Microsoft.AspNetCore.Http.Features.dll
+D:\_programowanie\dotNET\portfolioProjects\PulseHub\PulseHub.Tests\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Common.dll
+D:\_programowanie\dotNET\portfolioProjects\PulseHub\PulseHub.Tests\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Core.dll
+D:\_programowanie\dotNET\portfolioProjects\PulseHub\PulseHub.Tests\bin\Debug\net8.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll

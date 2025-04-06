@@ -1,21 +1,18 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using PulseHub.Application.Hubs;
+using PulseHub.Core.Interfaces;
 
-namespace PulseHub.Core.Interfaces
+public class NotificationHubService : INotificationHub
 {
+    private readonly IHubContext<NotificationHub> _hubContext;
 
-    public class NotificationHubService : INotificationHub
+    public NotificationHubService(IHubContext<NotificationHub> hubContext)
     {
-        private readonly IHubContext<NotificationHub> _hubContext;
+        _hubContext = hubContext;
+    }
 
-        public NotificationHubService(IHubContext<NotificationHub> hubContext)
-        {
-            _hubContext = hubContext;
-        }
-
-        public async Task SendNotificationAsync(string userEmail, string message)
-        {
-            await _hubContext.Clients.User(userEmail).SendAsync("ReceiveNotification", message);
-        }
+    public async Task SendNotificationAsync(string userEmail, string message)
+    {
+        await _hubContext.Clients.User(userEmail).SendAsync("ReceiveNotification", message);
     }
 }
