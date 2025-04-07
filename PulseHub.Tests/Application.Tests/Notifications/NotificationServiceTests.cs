@@ -2,9 +2,6 @@
 using PulseHub.Application.Services;
 using PulseHub.Core.Entities;
 using PulseHub.Core.Interfaces;
-using System;
-using System.Threading.Tasks;
-using Xunit;
 
 namespace PulseHub.Tests.Application.Tests.Notifications
 {
@@ -20,7 +17,6 @@ namespace PulseHub.Tests.Application.Tests.Notifications
             _mockEmailService = new Mock<IEmailService>();
             _mockUserRepository = new Mock<IUserRepository>();
             _mockNotificationHub = new Mock<INotificationHub>();
-
             _notificationService = new NotificationService(_mockEmailService.Object, _mockUserRepository.Object, _mockNotificationHub.Object);
         }
 

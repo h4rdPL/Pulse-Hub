@@ -21,6 +21,7 @@ namespace PulseHub.Infrastructure
             services.AddScoped<RegisterUser>();
             services.AddScoped<LoginUser>();
             services.AddScoped<NotificationService>();
+            services.AddScoped<INotificationHub, NotificationHubService>();
         }
     }
 }

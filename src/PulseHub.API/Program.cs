@@ -11,6 +11,7 @@ builder.Services.AddSwaggerGen();
 
 
 builder.Services.AddInfrastructure(builder.Configuration.GetConnectionString("DefaultConnection"));
+builder.Services.AddSignalR();
 
 builder.Services.AddControllers();
 
