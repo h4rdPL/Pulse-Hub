@@ -11,9 +11,10 @@ namespace PulseHub.API.Controllers
     {
         private readonly RegisterUser _registerUser;
         private readonly LoginUser _loginUser;
-        public UserController(RegisterUser registerUser)
+        public UserController(RegisterUser registerUser, LoginUser loginUser)
         {
             _registerUser = registerUser;
+            _loginUser = loginUser;
         }
 
         /// <summary>

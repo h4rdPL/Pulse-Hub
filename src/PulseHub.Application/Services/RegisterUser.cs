@@ -30,7 +30,7 @@ namespace PulseHub.Application.Services
             {
                 Username = userDto.Username,
                 Email = userDto.Email,
-                Password = userDto.Password
+                Password = PasswordHasher.HashPassword(userDto.Password)
             };
 
             await _userRepository.AddUserAsync(user);

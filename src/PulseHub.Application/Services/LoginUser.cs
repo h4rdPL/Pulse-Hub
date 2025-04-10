@@ -32,6 +32,10 @@ namespace PulseHub.Application.Services
                 return Result<string>.Failure("Invalid credentials.");
             }
 
+            Console.WriteLine($"UserRepository: {_userRepository != null}");
+            Console.WriteLine($"TokenService: {_tokenService != null}");
+
+
             var token = _tokenService.GenerateToken(user);
             return Result<string>.Success(token);
         }
